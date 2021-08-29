@@ -1,0 +1,72 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "delete";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>DELETE</h1>
+
+    <form action="" method="post">
+        @using (Html.BeginForm("Admin", "deletePost", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            UserName
+                        </th>
+                        <th>
+                            DateJoin
+                        </th>
+                        <th>
+                            Function
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td width="1%">@Model.Id</td>
+                        <td width="20%">@Model.Name</td>
+                        <td width="20%">@Model.Email</td>
+                        <td width="20%">@Model.UserName</td>
+                        <td width="20%">@Model.Datejoin</td>                       
+                        <td>
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a asp-controller="Admin" asp-action="listBlock" class="btn btn-secondary mx-1"> Back </a>
+        }
+    </form>
+</body>
+</html>
+@*<h4>Name</h4>
+<label for="name">@Model.Name</label>
+<br>
+<h4>Email</h4>
+<label for="email">@Model.Email</label>
+<br>
+<h4>UserName</h4>
+<label for="email">@Model.UserName</label>
+<br>
+<h4>Datejoin</h4>
+<label for="email">@Model.Datejoin</label>
+<br>
+<input type="submit" value="Delete" class="btn btn-danger" />
+<a asp-controller="Admin" asp-action="listBlock" class="btn btn-secondary mx-1"> Back </a>*@

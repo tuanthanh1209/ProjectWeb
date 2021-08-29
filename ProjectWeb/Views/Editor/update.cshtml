@@ -1,0 +1,57 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "update";
+    Layout = "~/Views/Shared/layoutEditor.cshtml";
+}
+
+
+
+<body>
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+        <h1>Update</h1>
+        <div class="main-agileinfo">
+            <div class="agileits-top">
+                <form action="" method="post">
+                    @using (Html.BeginForm("Admin", "update", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Size, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Size, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Price, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Condition, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Condition, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Stock, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Stock, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div>
+                            <td width="30%">
+                                <div div class="w-40 btn-group" role="group">
+                                    <input type="submit" value="Update" class="btn btn-success" />
+                                    <a asp-controller="Editor" asp-action="listProduct" class="btn btn-secondary mx-1"> Back </a>
+                                </div>
+                            </td>
+                        </div>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- //main -->
+</body>

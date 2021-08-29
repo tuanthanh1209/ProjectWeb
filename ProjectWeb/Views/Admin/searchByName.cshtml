@@ -1,0 +1,71 @@
+﻿@model List<User>
+
+
+@{
+    ViewData["Title"] = "searchByName";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<form method="get" asp-controller="Admin" asp-action="searchByName">
+    <div class="input-group">
+        <input name="Name" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary"> Search </button>
+        </div>
+    </div>
+</form>
+
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    UserName
+                </th>
+                <th>
+                    DateJoin
+                </th>
+                <th>
+                    Funtion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var it in Model)
+            {
+                <tr>
+                    <td width="1%">@it.Id</td>
+                    <td width="20%">@it.Name</td>
+                    <td width="30%">@it.Email</td>
+                    <td width="30%">@it.UserName</td>
+                    <td width="30%">@it.Datejoin</td>
+                    <td width="30%">
+                        <div div class="w-40 btn-group" role="group">
+                            <a asp-controller="Admin" asp-action="blockUser" asp-route-Id="@it.Id" class="btn btn-danger"> Block </a>
+                            <a asp-controller="Admin" asp-action="update" asp-route-Id="@it.Id" class="btn btn-primary mx-1"> Update </a>
+                            <a asp-controller="Admin" asp-action="showProfile" asp-route-Id="@it.Id" class="btn btn-primary mx-1"> Profile </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>  
+}
+else
+{
+    <p>No Item</p>
+}

@@ -1,0 +1,35 @@
+﻿@model Login
+<div class="login">
+    <div class="heading">
+        @Html.ValidationMessage("Login", new { @class = "text-danger" })
+        <form action="" method="post">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                @using (Html.BeginForm("index", "User", FormMethod.Post))
+                {                   
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName)
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, "", new { @class = "form-control", @placeholder = "UserName" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                        @*<span asp-validation-for="UserName" class="text-danger"></span>*@
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Login" />
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+

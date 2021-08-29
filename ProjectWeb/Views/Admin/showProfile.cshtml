@@ -1,0 +1,58 @@
+﻿@model Profile
+
+
+@{
+    ViewData["Title"] = "showProfile";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<div class="col-md-8">
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Model.FullName
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Address</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Model.Address
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Model.Phone
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Birthday</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Model.Brithday
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Gender</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Model.Gender
+                </div>
+            </div>
+</div>
+        <a asp-controller="Admin" asp-action="listUser" class="btn btn-secondary mx-1"> Back </a>

@@ -1,0 +1,77 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "serachProduct";
+    Layout = "~/Views/Shared/layoutEditor.cshtml";
+}
+
+
+<form method="get" asp-controller="Editor" asp-action="serachProduct">
+    <div class="input-group">
+        <input name="Name" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary"> Search </button>
+        </div>
+    </div>
+</form>
+
+
+@if (Model.Count() > 0)
+{
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Brand
+            </th>
+            <th>
+                Condision
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Stock
+            </th>
+            <th>
+                Function
+            </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var it in Model)
+        {
+        <tr>
+            <td width="1%">@it.Id</td>
+            <td width="20%">@it.Name</td>
+            <td width="30%">@it.Brand</td>
+            <td width="30%">@it.Condition</td>
+            <td width="30%">@it.Size</td>
+            <td width="30%">@it.Price</td>
+            <td width="30%">@it.Stock</td>
+            <td width="30%">
+                <div div class="w-40 btn-group" role="group">
+                    <a asp-controller="Editor" asp-action="update" asp-route-Id="@it.Id" class="btn btn-primary mx-1"> Update </a>
+                    <a asp-controller="Editor" asp-action="blockPro" asp-route-Id="@it.Id" class="btn btn-outline-danger"> Block </a>
+                </div>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+}
+else
+{
+    <p>No Item</p>
+}

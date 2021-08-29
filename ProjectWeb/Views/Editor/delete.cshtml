@@ -1,0 +1,56 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "delete";
+    Layout = "~/Views/Shared/layoutEditor.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>DELETE</h1>
+
+    <form action="" method="post">
+        @using (Html.BeginForm("Editor", "deletePost", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+
+                        @*<th>
+                            Email
+                        </th>*@
+                        @*<th>
+                            UserName
+                        </th>
+                        <th>
+                            DateJoin
+                        </th>*@
+                        <th>
+                            Function
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td width="1%">@Model.Id</td>
+                        <td width="20%">@Model.Name</td>                        
+                        <td>
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a asp-controller="Editor" asp-action="listProduct" class="btn btn-secondary mx-1"> Back </a>
+        }
+    </form>
+</body>
+</html>
+
