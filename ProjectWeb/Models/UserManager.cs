@@ -66,12 +66,7 @@ namespace ProjectWeb.Models
             }
         }        
 
-        public Receipt getReceipt(int userID)
-        {
-            Receipt R = _db.Receipts.FirstOrDefault(x => x.IdUser.Equals(userID));
-            User user = _db.Users.FirstOrDefault(x => x.Id.Equals(userID));
-
-        }
+     
 
     }
 }
